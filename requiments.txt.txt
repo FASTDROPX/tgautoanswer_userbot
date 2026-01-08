@@ -1,0 +1,165 @@
+```txt
+# Telegram Bot Manager v2.0 Requirements
+
+## Основные зависимости
+telethon==1.28.5
+
+## Дополнительные зависимости для GUI
+tkinter  # обычно предустановлен в Python
+
+## Рекомендуемые версии Python
+Python>=3.8
+
+## Опциональные зависимости для разработки
+pyinstaller==5.13.0  # для создания исполняемого файла
+pytest==7.4.0  # для тестирования
+black==23.9.1  # для форматирования кода
+```
+
+Создайте файл `requirements.txt` с этим содержимым, или если хотите более подробный файл:
+
+```txt
+# Telegram Bot Manager v2.0
+# Requirements file
+
+# Основные зависимости
+telethon==1.28.5
+
+# GUI интерфейс (стандартная библиотека)
+# tkinter обычно входит в стандартную поставку Python
+# Для некоторых систем может потребоваться установка:
+# Ubuntu/Debian: sudo apt-get install python3-tk
+# Windows: Обычно установлен с Python
+# macOS: brew install python-tk
+
+# Версия Python
+python>=3.8
+
+# Опциональные зависимости для разработки
+# ---------------------------------------
+# Для создания исполняемого файла (exe)
+# pyinstaller==5.13.0
+
+# Для тестирования
+# pytest==7.4.0
+# pytest-asyncio==0.21.0
+
+# Для форматирования кода
+# black==23.9.1
+# flake8==6.0.0
+
+# Для статического анализа
+# pylint==2.17.4
+# mypy==1.5.0
+
+# Для разработки UI
+# customtkinter==5.2.0  # альтернативный современный UI
+
+# Для дополнительного функционала
+# python-dotenv==1.0.0  # загрузка переменных окружения
+# psutil==5.9.5  # мониторинг ресурсов
+# loguru==0.7.2  # улучшенное логирование
+```
+
+## Минимальный файл для быстрой установки:
+
+```txt
+telethon==1.28.5
+```
+
+## Как установить зависимости:
+
+### Базовый вариант (только для запуска):
+```bash
+pip install -r requirements.txt
+```
+
+### Полный вариант (с инструментами разработки):
+```bash
+# Установите зависимости
+pip install telethon==1.28.5
+
+# Для создания exe-файла (опционально)
+pip install pyinstaller==5.13.0
+
+# Для тестирования (опционально)
+pip install pytest==7.4.0 pytest-asyncio==0.21.0
+```
+
+### Для разных операционных систем:
+
+**Windows:**
+```powershell
+# Установите Python 3.8+ с официального сайта python.org
+# Убедитесь, что выбрали опцию "Add Python to PATH"
+python -m pip install --upgrade pip
+pip install telethon==1.28.5
+```
+
+**Ubuntu/Debian:**
+```bash
+# Установите Python и Tkinter
+sudo apt-get update
+sudo apt-get install python3 python3-pip python3-tk
+
+# Установите зависимости
+pip3 install --upgrade pip
+pip3 install telethon==1.28.5
+```
+
+**macOS:**
+```bash
+# Установите через Homebrew
+brew install python-tk
+pip3 install telethon==1.28.5
+```
+
+## Проверка установки:
+
+```bash
+# Проверьте версию Python
+python --version
+
+# Проверьте установку Telethon
+python -c "import telethon; print(f'Telethon версия: {telethon.__version__}')"
+
+# Запустите программу
+python FASTBOT.py
+```
+
+## Если возникают проблемы:
+
+1. **Ошибка с tkinter:**
+   - Windows: Переустановите Python с официального сайта, выбрав опцию "tcl/tk"
+   - Ubuntu: `sudo apt-get install python3-tk`
+   - macOS: `brew install python-tk`
+
+2. **Ошибка с telethon:**
+   ```bash
+   # Обновите pip
+   pip install --upgrade pip
+   
+   # Попробуйте установить без кэша
+   pip install --no-cache-dir telethon==1.28.5
+   ```
+
+3. **Проблемы с версией Python:**
+   Убедитесь, что у вас Python 3.8 или выше:
+   ```bash
+   python --version
+   ```
+
+## Docker (опционально):
+
+```dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["python", "FASTBOT.py"]
+```
